@@ -173,15 +173,13 @@ function lib:Window(text, preset, closebind)
     end
     
     function lib:ChangeCloseBind(bind)
+        uitoggled = true
         CloseBind = bind
+        uitoggled = false
     end
     
     function lib:GetCloseBind()
         return CloseBind
-    end
-    
-    function lib:SetUIToggled(toggle)
-        uitoggled = toggle
     end
 
     function lib:Notification(texttitle, textdesc, textbtn)
