@@ -173,9 +173,7 @@ function lib:Window(text, preset, closebind)
     end
     
     function lib:ChangeCloseBind(bind)
-        destroyed = true
         CloseBind = bind
-        destroyed = false
     end
     
     function lib:GetCloseBind()
