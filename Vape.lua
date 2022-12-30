@@ -173,9 +173,9 @@ function lib:Window(text, preset, closebind)
     end
     
     function lib:ChangeCloseBind(bind)
-        uitoggled = true
+        destroyed = true
         CloseBind = bind
-        uitoggled = false
+        destroyed = false
     end
     
     function lib:GetCloseBind()
