@@ -1620,26 +1620,11 @@ function lib:Window(text, preset, closebind)
 
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
 
-            Bind.MouseButton1Click:Connect(
-                function()
-                    BindText.Text = "..."
-                    binding = true
-                    local inputwait = game:GetService("UserInputService").InputBegan:wait()
-                    if inputwait.KeyCode.Name ~= "Unknown" then
-                        BindText.Text = inputwait.KeyCode.Name
-                        Key = inputwait.KeyCode.Name
-                        binding = false
-                    else
-                        binding = false
-                    end
-                end
-            )
-
             game:GetService("UserInputService").InputBegan:connect(
                 function(current, pressed)
                     if not pressed then
                         if current.KeyCode.Name == Key and binding == false then
-                            pcall(callback)
+                            pcall(callback, keypreset)
                         end
                     end
                 end
