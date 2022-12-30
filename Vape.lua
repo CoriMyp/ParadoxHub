@@ -179,6 +179,10 @@ function lib:Window(text, preset, closebind)
     function lib:GetCloseBind()
         return CloseBind
     end
+    
+    function lib:SetUIToggled(toggle)
+        uitoggled = toggle
+    end
 
     function lib:Notification(texttitle, textdesc, textbtn)
         local NotificationHold = Instance.new("TextButton")
@@ -1643,7 +1647,7 @@ function lib:Window(text, preset, closebind)
                 function(current, pressed)
                     if not pressed then
                         if current.KeyCode.Name == Key and binding == false then
-                            pcall(callback, current)
+                            pcall(callback, current.KeyCode)
                         end
                     end
                 end
