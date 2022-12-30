@@ -167,11 +167,6 @@ function lib:Window(text, preset, closebind)
 
     TabFolder.Name = "TabFolder"
     TabFolder.Parent = Main
-    
-    function lib:Destroy()
-       Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-       destroyed = true
-    end
 
     function lib:ChangePresetColor(toch)
         PresetColor = toch
@@ -319,6 +314,12 @@ function lib:Window(text, preset, closebind)
         )
     end
     local tabhold = {}
+    
+    function tabhold:Destroy()
+       Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+       destroyed = true
+    end
+    
     function tabhold:Tab(text)
         local TabBtn = Instance.new("TextButton")
         local TabTitle = Instance.new("TextLabel")
