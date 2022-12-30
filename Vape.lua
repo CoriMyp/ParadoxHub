@@ -175,6 +175,10 @@ function lib:Window(text, preset, closebind)
     function lib:ChangeCloseBind(bind)
         CloseBind = bind
     end
+    
+    function lib:GetCloseBind()
+        return CloseBind
+    end
 
     function lib:Notification(texttitle, textdesc, textbtn)
         local NotificationHold = Instance.new("TextButton")
@@ -1631,6 +1635,16 @@ function lib:Window(text, preset, closebind)
                         binding = false
                     else
                         binding = false
+                    end
+                end
+            )
+            
+            game:GetService("UserInputService").InputBegan:connect(
+                function(current, pressed)
+                    if not pressed then
+                        if current.KeyCode.Name == Key and binding == false then
+                            pcall(callback, current)
+                        end
                     end
                 end
             )
