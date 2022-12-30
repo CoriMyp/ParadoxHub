@@ -171,6 +171,10 @@ function lib:Window(text, preset, closebind)
     function lib:ChangePresetColor(toch)
         PresetColor = toch
     end
+    
+    function lib:ChangeCloseBind(bind)
+        CloseBind = bind
+    end
 
     function lib:Notification(texttitle, textdesc, textbtn)
         local NotificationHold = Instance.new("TextButton")
