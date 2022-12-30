@@ -168,7 +168,7 @@ function lib:Window(text, preset, closebind)
     TabFolder.Name = "TabFolder"
     TabFolder.Parent = Main
     
-    function win:Destroy()
+    function lib:Destroy()
        Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
        destroyed = true
     end
