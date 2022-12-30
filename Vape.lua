@@ -141,22 +141,25 @@ function lib:Window(text, preset, closebind)
     MakeDraggable(DragFrame, Main)
 
     local uitoggled = false
+    local destroyed = false
     UserInputService.InputBegan:Connect(
         function(io, p)
-            if io.KeyCode == CloseBind then
-                if uitoggled == false then
-                    Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-                    uitoggled = true
-                    wait(.5)
-                else
-                    Main:TweenSize(
-                        UDim2.new(0, 560, 0, 319),
-                        Enum.EasingDirection.Out,
-                        Enum.EasingStyle.Quart,
-                        .6,
-                        true
-                    )
-                    uitoggled = false
+            if not destroyed then
+                if io.KeyCode == CloseBind then
+                    if uitoggled == false then
+                        Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+                        uitoggled = true
+                        wait(.5)
+                    else
+                        Main:TweenSize(
+                            UDim2.new(0, 560, 0, 319),
+                            Enum.EasingDirection.Out,
+                            Enum.EasingStyle.Quart,
+                            .6,
+                            true
+                        )
+                        uitoggled = false
+                    end
                 end
             end
         end
@@ -164,6 +167,11 @@ function lib:Window(text, preset, closebind)
 
     TabFolder.Name = "TabFolder"
     TabFolder.Parent = Main
+    
+    function win:Destroy()
+       Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+       destroyed = true
+    end
 
     function lib:ChangePresetColor(toch)
         PresetColor = toch
