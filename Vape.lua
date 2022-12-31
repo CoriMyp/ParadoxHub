@@ -321,8 +321,6 @@ function lib:Window(text, preset, closebind)
     local tabhold = {}
     
     function tabhold:Destroy()
-       Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-       wait(.6)
        game.CoreGui.ui:Destroy()
     end
     
