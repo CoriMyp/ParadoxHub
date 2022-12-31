@@ -323,7 +323,7 @@ function lib:Window(text, preset, closebind)
     
     function tabhold:Destroy()
        Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-       game.CoreGui.FindFirstChild("ui"):Destroy()
+       game.CoreGui.ui:Destroy()
        --destroyed = true
     end
     
