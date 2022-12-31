@@ -141,10 +141,9 @@ function lib:Window(text, preset, closebind)
     MakeDraggable(DragFrame, Main)
 
     local uitoggled = false
-    local destroyed = false
+    --local destroyed = false
     UserInputService.InputBegan:Connect(
         function(io, p)
-            if not destroyed then
                 if io.KeyCode == CloseBind then
                     if uitoggled == false then
                         Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
@@ -161,7 +160,6 @@ function lib:Window(text, preset, closebind)
                         uitoggled = false
                     end
                 end
-            end
         end
     )
 
@@ -325,7 +323,8 @@ function lib:Window(text, preset, closebind)
     
     function tabhold:Destroy()
        Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-       destroyed = true
+       game.CoreGui.FindFirstChild("ui"):Destroy()
+       --destroyed = true
     end
     
     function tabhold:Tab(text)
