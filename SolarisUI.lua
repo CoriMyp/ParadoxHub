@@ -1238,7 +1238,7 @@ function SolarisLib:New(Config)
                             Holding = true
                             callback(Holding)
                         else
-                            callback()
+                            callback(Input.KeyCode)
                         end
                     elseif Bind.Binding then
                         local Key
