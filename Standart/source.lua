@@ -1,5 +1,5 @@
---WALK SP
-local walkspeed_value = 16
+--WALK SPEED
+walkspeed_value = 16
 
 function walk_speed()
 	game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):connect(function()
@@ -10,7 +10,7 @@ function walk_speed()
 end
 
 --JUMP POWER
-local jump_power = 50
+jump_power = 50
 
 function jump_power()
 	game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("JumpPower"):connect(function()
@@ -21,17 +21,21 @@ function jump_power()
 end
 
 -- INFINITY JUMP
+local infjump_func
+
 function infinity_jump(state)
-	game:GetService("UserInputService").JumpRequest:connect(function()
-		if state then
+	if state then
+		infjump_func = game:GetService("UserInputService").JumpRequest:connect(function()
 			game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
-		end
-	end)
+		end)
+	elseif infjump_func then
+		infjump_func:Disconnect()
+	end
 end
 
 -- FLY
-local fly_keycode = Enum.KeyCode.F
-local fly_speed = 100
+fly_keycode = Enum.KeyCode.F
+fly_speed = 100
 
 function fly(state)
 	local mouse = game.Players.LocalPlayer:GetMouse()
@@ -113,9 +117,9 @@ function fly(state)
 	end
 
 
-	local dofly = false
-	mouse.KeyDown:connect(function(KEY)
-		if state then
+	if state then
+		local dofly = false
+		mouse.KeyDown:connect(function(KEY)
 			if KEY:lower() == fly_keycode.Name:lower() then
 				if not dofly then
 					dofly = not dofly
@@ -135,14 +139,9 @@ function fly(state)
 			elseif KEY:lower() == 'd' then
 				CONTROL.R = fly_speed / 100
 			end
-		else
-			dofly = false
-			FlyOff()
-		end
-	end)
+		end)
 
-	mouse.KeyUp:connect(function(KEY)
-		if state then
+		mouse.KeyUp:connect(function(KEY)
 			if KEY:lower() == 'w' then
 				CONTROL.F = 0
 			elseif KEY:lower() == 's' then
@@ -152,12 +151,15 @@ function fly(state)
 			elseif KEY:lower() == 'd' then
 				CONTROL.R = 0
 			end
-		end
-	end)
+		end)
+	else
+		dofly = not dofly
+		FlyOff()
+	end
 end
 
 -- NOCLIP
-local noclip_keycode = Enum.KeyCode.Z
+noclip_keycode = Enum.KeyCode.Z
 
 function noclip(state)
 	local UserInputService = game:GetService("UserInputService")
