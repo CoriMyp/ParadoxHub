@@ -859,7 +859,8 @@ function SolarisLib:New(Config)
 				Toggle:Set(def)
                 SolarisLib.Flags[flag] = Toggle
                 return Toggle
-            end    
+            end 
+
             function ItemHold:Slider(text, min, max, start, inc, flag, callback)
                 local Slider, SliderMain = {Value = start}, game:GetObjects("rbxassetid://6967573727")[1]
                 SliderMain.Parent = Section
@@ -869,10 +870,10 @@ function SolarisLib:New(Config)
 
                 local function move(Input)
                     local XSize = math.clamp((Input.Position.X - SliderMain.SliderFrame.AbsolutePosition.X) / SliderMain.SliderFrame.AbsoluteSize.X, 0, 1)
-                    local Increment = inc --and (max / ((max - min) / (inc * 4))) or (max >= 50 and max / ((max - min) / 4)) or (max >= 25 and max / ((max - min) / 2)) or (max / (max - min))
+                    local Increment = inc and (max / ((max - min) / (inc * 4))) or (max >= 50 and max / ((max - min) / 4)) or (max >= 25 and max / ((max - min) / 2)) or (max / (max - min))
                     local SizeRounded = UDim2.new((math.round(XSize * ((max / Increment) * 4)) / ((max / Increment) * 4)), 0, 1, 0) 
                     TweenService:Create(SliderMain.SliderFrame.SliderCurrentFrame,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = SizeRounded}):Play() 
-                    local Val = ((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20)
+                    local Val = math.round((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20)
                     SliderMain.SliderVal.Text = tostring(Val)
                     Slider.Value = Val
                     callback(Slider.Value)
@@ -884,11 +885,11 @@ function SolarisLib:New(Config)
 
                 function Slider:Set(val)
                     local a = tostring(val and (val / max) * (max - min) + min) or 0
-					SliderMain.SliderVal.Text = tostring(a)
+		    SliderMain.SliderVal.Text = tostring(val)
                     SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new((val or 0) / max, 0, 1, 0)
                     Slider.Value = val
-					return callback(Slider.Value)
-				end	
+		    return callback(Slider.Value)
+		end	
 
                 spawn(function()
                     while wait() do
