@@ -861,7 +861,7 @@ function SolarisLib:New(Config)
                 return Toggle
             end    
             function ItemHold:Slider(text, min, max, start, inc, flag, callback)
-                local Slider,SliderMain = {Value = start}, game:GetObjects("rbxassetid://6967573727")[1]
+                local Slider, SliderMain = {Value = start}, game:GetObjects("rbxassetid://6967573727")[1]
                 SliderMain.Parent = Section
                 SliderMain.SliderText.Text = text
                 SliderMain.Name = text .. "element"
@@ -872,7 +872,7 @@ function SolarisLib:New(Config)
                     local Increment = inc and (max / ((max - min) / (inc * 4))) or (max >= 50 and max / ((max - min) / 4)) or (max >= 25 and max / ((max - min) / 2)) or (max / (max - min))
                     local SizeRounded = UDim2.new((math.round(XSize * ((max / Increment) * 4)) / ((max / Increment) * 4)), 0, 1, 0) 
                     TweenService:Create(SliderMain.SliderFrame.SliderCurrentFrame,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = SizeRounded}):Play() 
-                    local Val = math.round((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20) --/ 20
+                    local Val = math.round((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20) / 20
                     SliderMain.SliderVal.Text = tostring(Val)
                     Slider.Value = Val
                     callback(Slider.Value)
