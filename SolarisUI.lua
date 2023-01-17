@@ -883,10 +883,14 @@ function SolarisLib:New(Config)
 		SliderMain.SliderFrame.InputEnded:Connect(function(input) if input.UserInputType == Enum.UserInputType.MouseButton1 then dragging = false end end)
 		game:GetService("UserInputService").InputChanged:Connect(function(input) if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then move(input) end end)
 
+		local function map_range(x, in_min, in_max, out_min, out_max)
+  			return (x - in_min) * (out_max - out_min) // (in_max - in_min) + out_min
+		end
+			
                 function Slider:Set(val)
                     --local a = tostring(val and (val / max) * (max - min) + min) or 0
 		    SliderMain.SliderVal.Text = tostring(val)
-                    SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new(100/300, 0, 1, 0)
+                    SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new(map_range(val, min, max, 0, 1), 0, 1, 0)
                     Slider.Value = val
 		    return callback(Slider.Value)
 		end	
