@@ -886,7 +886,7 @@ function SolarisLib:New(Config)
                 function Slider:Set(val)
                     --local a = tostring(val and (val / max) * (max - min) + min) or 0
 		    SliderMain.SliderVal.Text = tostring(val)
-                    SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new(1, 0, 1, 0)
+                    SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new(0, 0, 1, 0)
                     Slider.Value = val
 		    return callback(Slider.Value)
 		end	
