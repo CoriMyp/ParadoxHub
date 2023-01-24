@@ -888,7 +888,6 @@ function SolarisLib:New(Config)
 		end
 				
                 function Slider:Set(val)
-                    --local a = tostring(val and (val / max) * (max - min) + min) or 0
 		    SliderMain.SliderVal.Text = tostring(val)
                     SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new(map(val, min, max, 0, 1), 0, 1, 0)
                     Slider.Value = val
@@ -912,7 +911,6 @@ function SolarisLib:New(Config)
             end    
             function ItemHold:Dropdown(text, default, list, flag, callback)
                 local Dropdown,DropMain,OptionPreset = {Value = nil, Toggled = false, Options = list}, game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
-                local firstLoadDropdown = false
 		DropMain.Parent = Section
                 DropMain.Btn.Title.Text = default .. " " .. text
                 DropMain.Name = text .. "element"
@@ -936,7 +934,6 @@ function SolarisLib:New(Config)
                         Option.MouseButton1Click:Connect(function()
                             Dropdown.Value = option
                             DropMain.Btn.Title.Text = option .. " " .. text
-                            --Ripple(Option)
 			    ToggleDrop()
                             return callback(Dropdown.Value)
                         end)
