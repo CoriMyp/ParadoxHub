@@ -915,7 +915,7 @@ function SolarisLib:New(Config)
                 DropMain.Parent = Section
                 DropMain.Btn.Title.Text = text .. " " .. second_text
                 DropMain.Name = text .. "element"
-                
+
 
                 local function ToggleDrop()
                     Dropdown.Toggled = not Dropdown.Toggled
@@ -969,7 +969,7 @@ function SolarisLib:New(Config)
                 function Dropdown:Set(val)
 		    Dropdown.Value = val
                     DropMain.Btn.Title.Text = val .. " " .. second_text
-		    --ToggleDrop()
+		    ToggleDrop()
 		    return callback(Dropdown.Value)
 		end
 
@@ -982,7 +982,7 @@ function SolarisLib:New(Config)
                 end)
 
                 Dropdown:Refresh(list,false)
-                Dropdown:Set(def)
+                --Dropdown:Set(def)
                 SolarisLib.Flags[flag] = Dropdown
                 return Dropdown
             end   
