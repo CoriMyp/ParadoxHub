@@ -936,8 +936,8 @@ function SolarisLib:New(Config)
                         Option.MouseButton1Click:Connect(function()
                             Dropdown.Value = option
                             DropMain.Btn.Title.Text = option .. " " .. text
-			    ToggleDrop()
                             Ripple(Option)
+			    ToggleDrop()
                             return callback(Dropdown.Value)
                         end)
 
