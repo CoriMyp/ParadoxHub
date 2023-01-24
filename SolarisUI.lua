@@ -936,6 +936,7 @@ function SolarisLib:New(Config)
                             Dropdown.Value = option
                             DropMain.Btn.Title.Text = option .. " " .. text
                             Ripple(Option)
+			    ToggleDrop()
                             return callback(Dropdown.Value)
                         end)
 
@@ -969,7 +970,6 @@ function SolarisLib:New(Config)
                 function Dropdown:Set(val)
 		    Dropdown.Value = val
                     DropMain.Btn.Title.Text = val .. " " .. text
-		    ToggleDrop()
 		    return callback(Dropdown.Value)
 		end
 
