@@ -936,7 +936,7 @@ function SolarisLib:New(Config)
                             Dropdown.Value = option
                             DropMain.Btn.Title.Text = option .. " " .. text
                             Ripple(Option)
-			    ToggleDrop()
+			    --ToggleDrop()
                             return callback(Dropdown.Value)
                         end)
 
