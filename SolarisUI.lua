@@ -969,7 +969,7 @@ function SolarisLib:New(Config)
                 function Dropdown:Set(val)
 		    Dropdown.Value = val
                     DropMain.Btn.Title.Text = val .. " " .. second_text
-		    ToggleDrop()
+		    --ToggleDrop()
 		    return callback(Dropdown.Value)
 		end
 
