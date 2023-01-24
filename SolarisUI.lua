@@ -910,10 +910,10 @@ function SolarisLib:New(Config)
                 SolarisLib.Flags[flag] = Slider
                 return Slider
             end    
-            function ItemHold:Dropdown(text, second_text, list,def,flag,callback)
+            function ItemHold:Dropdown(text, default, list, flag, callback)
                 local Dropdown,DropMain,OptionPreset = {Value = nil, Toggled = false, Options = list}, game:GetObjects("rbxassetid://7027964359")[1], game:GetObjects("rbxassetid://7021432326")[1]
                 DropMain.Parent = Section
-                DropMain.Btn.Title.Text = text .. " " .. second_text
+                DropMain.Btn.Title.Text = default .. " " .. text
                 DropMain.Name = text .. "element"
 
 
@@ -934,7 +934,7 @@ function SolarisLib:New(Config)
 
                         Option.MouseButton1Click:Connect(function()
                             Dropdown.Value = option
-                            DropMain.Btn.Title.Text = option .. " " .. second text
+                            DropMain.Btn.Title.Text = option .. " " .. text
                             Ripple(Option)
                             return callback(Dropdown.Value)
                         end)
@@ -968,7 +968,7 @@ function SolarisLib:New(Config)
 
                 function Dropdown:Set(val)
 		    Dropdown.Value = val
-                    DropMain.Btn.Title.Text = val .. " " .. second_text
+                    DropMain.Btn.Title.Text = val .. " " .. text
 		    ToggleDrop()
 		    return callback(Dropdown.Value)
 		end
@@ -982,7 +982,7 @@ function SolarisLib:New(Config)
                 end)
 
                 Dropdown:Refresh(list,false)
-                --Dropdown:Set(def)
+                Dropdown:Set(default)
                 SolarisLib.Flags[flag] = Dropdown
                 return Dropdown
             end   
