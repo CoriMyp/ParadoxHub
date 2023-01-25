@@ -870,7 +870,7 @@ function SolarisLib:New(Config)
 
                 local function move(Input)
                     local XSize = math.clamp((Input.Position.X - SliderMain.SliderFrame.AbsolutePosition.X) / SliderMain.SliderFrame.AbsoluteSize.X, 0, 1)
-                    local Increment = inc --and (max / ((max - min) / (inc * 4))) or (max >= 50 and max / ((max - min) / 4)) or (max >= 25 and max / ((max - min) / 2)) or (max / (max - min))
+                    local Increment = inc
                     local SizeRounded = UDim2.new((math.round(XSize * ((max / Increment) * 4)) / ((max / Increment) * 4)), 0, 1, 0) 
                     TweenService:Create(SliderMain.SliderFrame.SliderCurrentFrame,TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = SizeRounded}):Play() 
                     local Val = math.round(((((SizeRounded.X.Scale * max) / max) * (max - min) + min) * 20) / 20)
@@ -892,7 +892,11 @@ function SolarisLib:New(Config)
                     SliderMain.SliderFrame.SliderCurrentFrame.Size = UDim2.new(map(val, min, max, 0, 1), 0, 1, 0)
                     Slider.Value = val
 		    return callback(Slider.Value)
-		end	
+		end
+				
+		function Slider:SetName(text)
+		    SliderMain.SliderText.Text = text
+		end
 
                 spawn(function()
                     while wait() do
