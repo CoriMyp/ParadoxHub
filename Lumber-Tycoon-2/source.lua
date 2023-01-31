@@ -1,5 +1,5 @@
 local woods = {
-	game_names = {
+	types = {
 		["Elm"] = "Generic",
 		["Oak"] = "Oak",
 		["Cherry"] = "Cherry",
