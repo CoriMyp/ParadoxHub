@@ -102,7 +102,9 @@ local waypoints = {
 }
 
 local data = {
-	woods, axes, waypoints
+	woods = woods,
+	axes = axes,
+	waypoints = waypoints
 }
 
 return data
