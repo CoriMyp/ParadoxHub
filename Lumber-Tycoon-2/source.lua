@@ -1,5 +1,5 @@
-woods = {
-	["game_names"] = {
+local woods = {
+	game_names = {
 		["Elm"] = "Generic",
 		["Oak"] = "Oak",
 		["Cherry"] = "Cherry",
@@ -17,7 +17,7 @@ woods = {
 		["Snowglow"] = "SnowGlow",
 		["Phantom"] = "LoneCave"
 	},
-	["names"] = {
+	names = {
 		"Elm",
 		"Oak",
 		"Cherry",
@@ -37,8 +37,8 @@ woods = {
 	}
 }
 
-axes = {
-	["damage"] = {
+local axes = {
+	damage = {
 		["ManyAxe"] = {10.2},
 		["EndTimesAxe"] = {1.58, 10000000},
 		["AxeSwamp"] = {0.8, 7, 5.35},
@@ -64,7 +64,7 @@ axes = {
 		["Axe3"] = {1.45},
 		["SilverAxe"] = {1.6}
 	},
-	["names"] = {
+	names = {
 		"ManyAxe",
 		"EndTimesAxe",
 		"AxeSwamp",
@@ -92,11 +92,17 @@ axes = {
 	}
 }
 
-waypoints = {
-	["cframes"] = {
+local waypoints = {
+	cframes = {
 	
 	},
-	["names"] = {
+	names = {
 	
 	}
 }
+
+local data = {
+	woods, axes, waypoints
+}
+
+return data
