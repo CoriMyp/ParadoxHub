@@ -129,13 +129,39 @@ local waypoints = {
 	},
 	places = {
 		"Spawn",
-		
+		"The Cabin",
+		"The Den",
+		"Bridge",
+		"Wood Dropoff",
+		"Shrine Of Sight",
+		"Lighthouse",
+		"Bird Cave",
+		"Green Box",
+		"Dock",
+		"Strange Man",
+		"Cave"
 	},
 	shops = {
-	
+		"Wood R Us",
+		"Land Store",
+		"Fancy Furnishings",
+		"Boxed Cars",
+		"Bob's Shack",
+		"Link's Logic",
+		"Fine Art Shop"
 	},
 	wood_regions = {
-	
+		"Cherry Meadow",
+		"Volcano",
+		"Swamp",
+		"Safari",
+		"Cavecrawler Cave",
+		"Phantom Cave",
+		"Palm Island 1",
+		"Palm Island 2",
+		"Palm Island 3",
+		"Tiaga Peak",
+		"T Monument"
 	}
 }
 
