@@ -567,7 +567,7 @@ function SolarisLib:New(Config)
                     if opened then
                         if (Dropdown.Main.Holder.UIListLayout.AbsoluteContentSize.Y + Container.UIListLayout.AbsoluteContentSize.Y) > 190 then
                             Container.CanvasSize = UDim2.new(0,0,0,Dropdown.Main.Holder.UIListLayout.AbsoluteContentSize.Y + Container.UIListLayout.AbsoluteContentSize.Y)
-                        end    
+			end
                     else
                         Container.CanvasSize = UDim2.new(0,0,0,Container.UIListLayout.AbsoluteContentSize.Y) 
                     end
@@ -966,6 +966,7 @@ function SolarisLib:New(Config)
              
 
                 DropMain.Btn.MouseButton1Click:Connect(function()
+		    Refresh(list, false)
                     ToggleDrop()
                 end)
 
