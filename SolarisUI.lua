@@ -966,7 +966,7 @@ function SolarisLib:New(Config)
              
 
                 DropMain.Btn.MouseButton1Click:Connect(function()
-		    Refresh(list, false)
+		    Refresh(list, true)
                     ToggleDrop()
                 end)
 
