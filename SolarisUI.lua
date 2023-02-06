@@ -897,6 +897,10 @@ function SolarisLib:New(Config)
 		function Slider:SetName(text)
 		    SliderMain.SliderText.Text = text
 		end
+				
+		function Slider:SetRegion(min1, max1)
+		    min, max = min1, max1
+		end
 
                 spawn(function()
                     while wait() do
