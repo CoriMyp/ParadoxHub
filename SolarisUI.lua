@@ -1,11 +1,11 @@
 -- This User Interface Library is brought to you by Solaris Software.
 local Solaris = Instance.new("ScreenGui")
-Solaris.Name = "dosage's solaris gui"
+Solaris.Name = "UI"
 Solaris.Parent = game.CoreGui
 Solaris.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 local NotificationHolder = Instance.new("ScreenGui")
-NotificationHolder.Name = "notiHolder"
+NotificationHolder.Name = "Notifs"
 NotificationHolder.Parent = game.CoreGui
 NotificationHolder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -162,7 +162,6 @@ local SolarisLib = {
 
 
 local MainUI = game:GetObjects("rbxassetid://7835727566")[1]
-print("SolarisLib Loaded!")
 local function MakeDraggable(topbarobject, object) 
     pcall(function()
 		local dragging, dragInput, mousePos, framePos = false
