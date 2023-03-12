@@ -27,7 +27,7 @@ local function CheckKey(tab, key)
 	end
 end
 
-
+local UI_Destroy = false
 
 local NotificationFrame = game:GetObjects("rbxassetid://6924028278")[1]
 NotificationFrame.ZIndex = 4
@@ -215,7 +215,13 @@ end
 
 function SolarisLib:Notification(title, desc)
     Notify:New(title,desc)
-end    
+end
+
+function SolarisLib:Destroy()
+    UI_Destroy = true
+    game.CoreGui.Ui:Destroy()
+    game.CoreGui.Notifs:Destroy()
+end
 
 function SolarisLib:New(Config)
     if not isfolder(Config.FolderToSave) then 
@@ -370,6 +376,7 @@ function SolarisLib:New(Config)
         RefreshList(Sounds)
 
         game:GetService("RunService").RenderStepped:Connect(function()
+            if UI_Destroy then return end
             local time = math.floor(Sound.TimePosition)
             local timesecs = time % 60
             local timemins = math.floor(time / 60)
