@@ -219,7 +219,7 @@ end
 
 function SolarisLib:Destroy()
     UI_Destroy = true
-    game.CoreGui.Ui:Destroy()
+    game.CoreGui.UI:Destroy()
     game.CoreGui.Notifs:Destroy()
 end
 
