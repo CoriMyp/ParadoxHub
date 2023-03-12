@@ -394,8 +394,7 @@ function SolarisLib:New(Config)
 
         
         spawn(function()
-            if UI_Destroy then return end
-            while wait() do
+            while wait() and not UI_Destroy do
                 MusicFrame.Frame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].MainFrame
                 MusicFrame.Frame.TopBar.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
                 MusicFrame.Frame.TopBar.CloseBtn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -433,8 +432,7 @@ function SolarisLib:New(Config)
 
         
         spawn(function()
-            if UI_Destroy then return end
-            while wait() do
+            while wait() and not UI_Destroy do
                 SFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].MainFrame
                 SFrame.TopBar.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
                 SFrame.TopBar.CloseBtn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -500,8 +498,7 @@ function SolarisLib:New(Config)
                 end)
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                         Toggle.ToggleFrame.ToggleToggled.BackgroundColor3 = value and SolarisLib.Themes[SolarisLib.Settings.Theme].ToggleToggled or SolarisLib.Themes[SolarisLib.Settings.Theme].MainFrame
                         Toggle.ToggleFrame.BackgroundColor3 = value and SolarisLib.Themes[SolarisLib.Settings.Theme].ToggleToggled or SolarisLib.Themes[SolarisLib.Settings.Theme].ToggleFrame
                         Toggle.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -553,8 +550,7 @@ function SolarisLib:New(Config)
                 end)
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                         Bind.Desc.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                         Bind.BText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                         Bind.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -605,8 +601,7 @@ function SolarisLib:New(Config)
                         end)
 
                         spawn(function()
-                            if UI_Destroy then return end
-                            while wait() do
+                            while wait() and not UI_Destroy do
                                Option.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor       
                             end
                         end)
@@ -614,8 +609,7 @@ function SolarisLib:New(Config)
                 end    
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                         Dropdown.Main.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
                         Dropdown.Main.Holder.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
                     end
@@ -710,8 +704,7 @@ function SolarisLib:New(Config)
 	end)
 
     spawn(function()
-        if UI_Destroy then return end
-        while wait() do
+        while wait() and not UI_Destroy do
             MFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].MainFrame
             MFrame.TopBar.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TopBar
             MFrame.TopBar.ButtonHolder.CloseBtn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -771,8 +764,7 @@ function SolarisLib:New(Config)
         end    
 
         spawn(function()
-            if UI_Destroy then return end
-            while wait() do
+            while wait() and not UI_Destroy do
                 Tab.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                 Tab.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TabToggled
                 Container.CanvasSize = UDim2.new(0,0,0,Container.UIListLayout.AbsoluteContentSize.Y + 26)
@@ -810,8 +802,7 @@ function SolarisLib:New(Config)
             Section.SectionTitle.Text = text
 
             spawn(function()
-                if UI_Destroy then return end
-                while wait() do
+                while wait() and not UI_Destroy do
                     Section.SectionTitle.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                     Section.Size = UDim2.new(0.9,0,0,Section.UIListLayout.AbsoluteContentSize.Y)
                 end
@@ -837,8 +828,7 @@ function SolarisLib:New(Config)
                 end)
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                        Button.BackgroundColor3 = Holding and SolarisLib.Themes[SolarisLib.Settings.Theme].ButtonHold or SolarisLib.Themes[SolarisLib.Settings.Theme].Button
                        Button.ButtonText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                     end
@@ -864,8 +854,7 @@ function SolarisLib:New(Config)
 				end)
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                         ToggleMain.ToggleFrame.ToggleToggled.BackgroundColor3 = Toggle.Value and SolarisLib.Themes[SolarisLib.Settings.Theme].ToggleToggled or SolarisLib.Themes[SolarisLib.Settings.Theme].Toggle
                         ToggleMain.ToggleFrame.BackgroundColor3 = Toggle.Value and SolarisLib.Themes[SolarisLib.Settings.Theme].ToggleToggled or SolarisLib.Themes[SolarisLib.Settings.Theme].ToggleFrame
                         ToggleMain.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Toggle
@@ -920,8 +909,7 @@ function SolarisLib:New(Config)
 		end
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                        SliderMain.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Slider
                        SliderMain.SliderFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].SliderBar
                        SliderMain.SliderFrame.SliderCurrentFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].SliderInc
@@ -965,8 +953,7 @@ function SolarisLib:New(Config)
                         end)
 
                         spawn(function()
-                            if UI_Destroy then return end
-                            while wait() do
+                            while wait() and not UI_Destroy do
                                Option.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].DropdownItem
                                DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                             end
@@ -1000,8 +987,7 @@ function SolarisLib:New(Config)
 		end
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                        DropMain.Btn.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Dropdown
                        DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                        DropMain.Btn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -1049,8 +1035,7 @@ function SolarisLib:New(Config)
                         end)
 
                         spawn(function()
-                            if UI_Destroy then return end
-                            while wait() do
+                            while wait() and not UI_Destroy do
                                Option.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].DropdownItem
                                DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                             end
@@ -1083,8 +1068,7 @@ function SolarisLib:New(Config)
 				end
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                        DropMain.Btn.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Dropdown
                        DropMain.Btn.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                        DropMain.Btn.Ico.ImageColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
@@ -1180,8 +1164,7 @@ function SolarisLib:New(Config)
                 end)
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                        ColorPreset.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Colorpicker
                        ColorPreset.Btn.Colorpicker.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                     end
@@ -1202,8 +1185,7 @@ function SolarisLib:New(Config)
 
                 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                        LabelFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Label
                        LabelFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                     end
@@ -1244,8 +1226,7 @@ function SolarisLib:New(Config)
 				end)
                 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                        TextboxFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Textbox
                        TextboxFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                        TextboxFrame.Box.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextboxFrame
@@ -1313,8 +1294,7 @@ function SolarisLib:New(Config)
 				end
 
                 spawn(function()
-                    if UI_Destroy then return end
-                    while wait() do
+                    while wait() and not UI_Destroy do
                        BindFrame.BackgroundColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].Bind
                        BindFrame.Title.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
                        BindFrame.BText.TextColor3 = SolarisLib.Themes[SolarisLib.Settings.Theme].TextColor
